@@ -1,0 +1,115 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Gradle
+.gradle/
+build/
+gradle/wrapper/gradle-wrapper.jar
+gradlew
+gradlew.bat
+gradle-app.setting
+
+# Maven
+target/
+.mvn/
+mvnw
+mvnw.cmd
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# Eclipse
+.classpath
+.project
+.settings/
+*.launch
+
+# NetBeans
+nbproject/
+nb-configuration.xml
+*.nbuser
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim/Neovim
+.vim/
+.swp
+.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+
+# OS-specific
+*.log
+*.pid
+
+# IDE temporary files
+*.tmp
+*.bak
+*.backup
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Local environment
+.env
+.env.local
+*.properties.local
+
+# Node (if used with frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Coverage reports
+coverage/
+jacoco.exec
