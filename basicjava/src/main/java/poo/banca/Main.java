@@ -5,7 +5,7 @@ import poo.banca.ValorInvalidoException;
 
 void main() throws ConstruccionCuentaException, ValorInvalidoException {
 
-    
+
 
     Cuenta origen = new Cuenta(
             "Sandra",
