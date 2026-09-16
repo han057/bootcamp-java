@@ -40,7 +40,7 @@ public class Cuenta {
         }
 
         if (Objects.isNull(numero) || numero.isBlank()) {
-            throw new ConstruccionCuentaException("Apellido cliente es requerido");
+            throw new ConstruccionCuentaException("Número cliente es requerido");
         }
     }
 
