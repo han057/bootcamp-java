@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de inscripción</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="contenedor">
+      <header>
+        <h1>Inscripción al bootcamp</h1>
+        <p>Los campos marcados con <span class="req">*</span> son obligatorios.</p>
+      </header>
+
+      <form id="formulario" novalidate>
+        <!-- Datos personales: inputs de texto -->
+        <fieldset>
+          <legend>Datos personales</legend>
+
+          <div class="campo">
+            <label for="nombre">Nombre completo <span class="req">*</span></label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ana Pérez" minlength="3" required />
+            <small class="error" id="error-nombre"></small>
+          </div>
+
+          <div class="campo">
+            <label for="email">Correo electrónico <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="ana@correo.com" required />
+            <small class="error" id="error-email"></small>
+          </div>
+
+          <div class="fila">
+            <div class="campo">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="3001234567" pattern="[0-9]{7,10}" />
+              <small class="error" id="error-telefono"></small>
+            </div>
+
+            <div class="campo">
+              <label for="nacimiento">Fecha de nacimiento <span class="req">*</span></label>
+              <input type="date" id="nacimiento" name="nacimiento" required />
+              <small class="error" id="error-nacimiento"></small>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="password">Contraseña <span class="req">*</span></label>
+            <input type="password" id="password" name="password" minlength="8" required />
+            <small class="ayuda">Mínimo 8 caracteres.</small>
+            <small class="error" id="error-password"></small>
+          </div>
+        </fieldset>
+
+        <!-- Selects -->
+        <fieldset>
+          <legend>Ubicación y programa</legend>
+
+          <div class="fila">
+            <div class="campo">
+              <label for="pais">País <span class="req">*</span></label>
+              <select id="pais" name="pais" required>
+                <option value="">Selecciona un país</option>
+                <option value="co">Colombia</option>
+                <option value="mx">México</option>
+                <option value="ar">Argentina</option>
+                <option value="es">España</option>
+                <option value="cl">Chile</option>
+              </select>
+              <small class="error" id="error-pais"></small>
+            </div>
+
+            <div class="campo">
+              <label for="ciudad">Ciudad</label>
+              <select id="ciudad" name="ciudad" disabled>
+                <option value="">Primero elige un país</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="programa">Programa <span class="req">*</span></label>
+            <select id="programa" name="programa" required>
+              <option value="">Selecciona un programa</option>
+              <optgroup label="Backend">
+                <option value="java">Java y Spring</option>
+                <option value="sql">SQL y bases de datos</option>
+              </optgroup>
+              <optgroup label="Frontend">
+                <option value="web">HTML, CSS y JavaScript</option>
+                <option value="react">React</option>
+              </optgroup>
+            </select>
+            <small class="error" id="error-programa"></small>
+          </div>
+
+          <div class="campo">
+            <label for="tecnologias">Tecnologías de interés (varias)</label>
+            <select id="tecnologias" name="tecnologias" multiple size="4">
+              <option value="java">Java</option>
+              <option value="spring">Spring Boot</option>
+              <option value="sql">SQL</option>
+              <option value="docker">Docker</option>
+              <option value="react">React</option>
+              <option value="git">Git</option>
+            </select>
+            <small class="ayuda">Mantén Ctrl (o Cmd) para elegir varias.</small>
+          </div>
+        </fieldset>
+
+        <!-- Radio buttons -->
+        <fieldset>
+          <legend>Nivel y modalidad</legend>
+
+          <div class="grupo" role="radiogroup" aria-labelledby="titulo-nivel">
+            <span class="titulo-grupo" id="titulo-nivel">Nivel de experiencia <span class="req">*</span></span>
+            <label class="opcion"><input type="radio" name="nivel" value="principiante" /> Principiante</label>
+            <label class="opcion"><input type="radio" name="nivel" value="intermedio" /> Intermedio</label>
+            <label class="opcion"><input type="radio" name="nivel" value="avanzado" /> Avanzado</label>
+            <small class="error" id="error-nivel"></small>
+          </div>
+
+          <div class="grupo" role="radiogroup" aria-labelledby="titulo-modalidad">
+            <span class="titulo-grupo" id="titulo-modalidad">Modalidad <span class="req">*</span></span>
+            <label class="opcion"><input type="radio" name="modalidad" value="presencial" /> Presencial</label>
+            <label class="opcion"><input type="radio" name="modalidad" value="virtual" checked /> Virtual</label>
+            <label class="opcion"><input type="radio" name="modalidad" value="hibrida" /> Híbrida</label>
+          </div>
+        </fieldset>
+
+        <!-- Checkboxes -->
+        <fieldset>
+          <legend>Preferencias</legend>
+
+          <div class="grupo">
+            <span class="titulo-grupo">Horario disponible</span>
+            <label class="opcion"><input type="checkbox" name="horario" value="manana" /> Mañana</label>
+            <label class="opcion"><input type="checkbox" name="horario" value="tarde" /> Tarde</label>
+            <label class="opcion"><input type="checkbox" name="horario" value="noche" /> Noche</label>
+            <label class="opcion"><input type="checkbox" name="horario" value="fines" /> Fines de semana</label>
+          </div>
+
+          <div class="grupo">
+            <label class="opcion">
+              <input type="checkbox" name="boletin" id="boletin" checked />
+              Quiero recibir novedades por correo
+            </label>
+          </div>
+
+          <div class="campo">
+            <label for="comentarios">Comentarios</label>
+            <textarea id="comentarios" name="comentarios" rows="4" maxlength="300" placeholder="Cuéntanos tus objetivos..."></textarea>
+            <small class="ayuda"><span id="contador">0</span>/300 caracteres</small>
+          </div>
+
+          <div class="grupo">
+            <label class="opcion">
+              <input type="checkbox" name="terminos" id="terminos" required />
+              Acepto los términos y condiciones <span class="req">*</span>
+            </label>
+            <small class="error" id="error-terminos"></small>
+          </div>
+        </fieldset>
+
+        <div class="acciones">
+          <button type="reset" class="btn btn-secundario">Limpiar</button>
+          <button type="submit" class="btn btn-primario">Enviar inscripción</button>
+        </div>
+      </form>
+
+      <section id="resultado" class="resultado" hidden aria-live="polite">
+        <h2>Datos recibidos</h2>
+        <pre id="salida"></pre>
+      </section>
+    </main>
+  </body>
+</html>

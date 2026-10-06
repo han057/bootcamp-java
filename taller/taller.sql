@@ -60,8 +60,8 @@ INSERT INTO clientes (nombre, email, ciudad)
 SELECT
     'Cliente ' || g,
     'cliente' || g || '@correo.com',
-    (ARRAY['Bogotá', 'Medellín', 'Cali', 'Barranquilla', 'Cartagena',
-           'Bucaramanga', 'Pereira', 'Manizales'])[1 + (g % 8)]
+    (ARRAY['Madrid', 'Malaga', 'Cadiz', 'Sevilla', 'Cartagena',
+           'Valencia', 'Barcelona', 'Ronda'])[1 + (g % 8)]
 FROM generate_series(1, 50000) AS g;
 
 INSERT INTO productos (nombre, categoria, precio)
