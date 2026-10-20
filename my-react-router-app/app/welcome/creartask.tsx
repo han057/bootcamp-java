@@ -1,10 +1,12 @@
 import { useState } from "react";
 import type { Task } from "./ListTarea";
 
+interface CrearTaskProps {
+  tasks: Task[];
+  createTaskHandler: (task: Task) => void;
+}
 
-export const CrearTask = (
-  { tasks, setTasks }: { tasks: Task[]; setTasks: React.Dispatch<React.SetStateAction<Task[]>> }
-) => {
+export const CrearTask = ({ tasks, createTaskHandler }: CrearTaskProps) => {
   const [nombreTarea, setNombreTarea] = useState("");
   const crearTarea = () => {
     if (nombreTarea.trim() === "") return;
@@ -13,18 +15,29 @@ export const CrearTask = (
       name: nombreTarea,
       completed: false,
     };
-    setTasks([...tasks, nuevaTarea]);
+    createTaskHandler(nuevaTarea);
     setNombreTarea("");
   };
-  
+
   return (
     <div>
       <h3>Crear Tarea</h3>
       <form>
-        <input type="text" 
-        placeholder="Nombre de la tarea" 
-        value={nombreTarea}
-        onChange={(e) => setNombreTarea(e.target.value)} />
+        <input type="text"
+          placeholder="Nombre de la tarea"
+          value={nombreTarea}
+          onChange={(e) => {
+            setNombreTarea(e.target.value); 
+            e.preventDefault(); 
+          }}
+          onClick={(e) => e.stopPropagation()}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              crearTarea();
+              e.preventDefault();
+            }
+          }}
+        />
         <button onClick={(e) => {
           crearTarea();
           e.preventDefault();

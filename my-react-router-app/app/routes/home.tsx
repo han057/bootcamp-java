@@ -2,7 +2,7 @@ import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
 import { Header } from "~/welcome/header";
 import { CrearTask } from "~/welcome/creartask";
-import { ListTarea } from "~/welcome/ListTarea";
+import { ListTarea, type Task } from "~/welcome/ListTarea";
 import { useState } from "react";
 
 export function meta({}: Route.MetaArgs) {
@@ -19,9 +19,19 @@ export default function Home() {
     { id: 2, name: "Tarea 2", completed: true },
     { id: 3, name: "Tarea 3", completed: false },
   ]);
+
+  function createTaskHandler(task: Task) {
+    //post to backend
+    
+    setTasks([...tasks, task]);
+  }
+
   return <>
   <Header />
-  <CrearTask tasks={tasks} setTasks={setTasks} />
+  <CrearTask
+    tasks={tasks}
+    createTaskHandler={createTaskHandler}
+  />
   <ListTarea tasks={tasks} />
   </>;
 }
